@@ -1,5 +1,7 @@
 package dev.aleksandrtesliuk.FirstTask;
 
+import java.util.Objects;
+
 public class Circle extends Shape {
     private final double radius;
 
@@ -19,20 +21,29 @@ public class Circle extends Shape {
     }
 
     @Override
-    public boolean equals(Object obj) {
-        if (!super.equals(obj)) return false;
-        Circle circle = (Circle) obj;
+    public void paint() {
+        System.out.println("Painting Circle with color " + color);
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof Circle circle)) return false;
+        if (!super.equals(o)) return false;
         return Double.compare(circle.radius, radius) == 0;
     }
 
     @Override
     public int hashCode() {
-        return 31 * super.hashCode() + Double.hashCode(radius);
+        return Objects.hash(super.hashCode(), radius);
     }
 
     @Override
     public String toString() {
-        return "Circle with radius: " + radius + ", color: " + color;
+        return "Circle{" +
+                "radius=" + radius +
+                ", color='" + color + '\'' +
+                '}';
     }
 }
 

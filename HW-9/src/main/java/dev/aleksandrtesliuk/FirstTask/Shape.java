@@ -1,5 +1,7 @@
 package dev.aleksandrtesliuk.FirstTask;
 
+import java.util.Objects;
+
 public abstract class Shape {
     protected String color;
 
@@ -11,26 +13,26 @@ public abstract class Shape {
 
     public abstract double calculatePerimeter();
 
-    public void paint() {
-        System.out.println("Painting shape in " + color);
-    }
+    public abstract void paint();
 
 
-    public boolean equals(Object obj) {
-        if (this == obj) return true;
-        if (obj == null || getClass() != obj.getClass()) return false;
-        Shape shape = (Shape) obj;
-        return color.equals(shape.color);
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Shape shape = (Shape) o;
+        return Objects.equals(color, shape.color);
     }
 
 
     public int hashCode() {
-        return color.hashCode();
+        return Objects.hash(color);
     }
 
 
     public String toString() {
-        return "Shape with color: " + color;
+        return "Shape{" +
+                "color='" + color + '\'' +
+                '}';
     }
 }
 

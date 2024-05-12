@@ -1,5 +1,7 @@
 package dev.aleksandrtesliuk.FirstTask;
 
+import java.util.Objects;
+
 public class Triangle extends Shape {
     private final double side1;
     private final double side2;
@@ -24,9 +26,15 @@ public class Triangle extends Shape {
     }
 
     @Override
-    public boolean equals(Object obj) {
-        if (!super.equals(obj)) return false;
-        Triangle triangle = (Triangle) obj;
+    public void paint() {
+        System.out.println("Painting Triangle with color " + color);
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof Triangle triangle)) return false;
+        if (!super.equals(o)) return false;
         return Double.compare(triangle.side1, side1) == 0 &&
                 Double.compare(triangle.side2, side2) == 0 &&
                 Double.compare(triangle.side3, side3) == 0;
@@ -34,12 +42,17 @@ public class Triangle extends Shape {
 
     @Override
     public int hashCode() {
-        return 31 * super.hashCode() + Double.hashCode(side1) + Double.hashCode(side2) + Double.hashCode(side3);
+        return Objects.hash(super.hashCode(), side1, side2, side3);
     }
 
     @Override
     public String toString() {
-        return "Triangle with sides: " + side1 + ", " + side2 + ", " + side3 + ", color: " + color;
+        return "Triangle{" +
+                "side1=" + side1 +
+                ", side2=" + side2 +
+                ", side3=" + side3 +
+                ", color='" + color + '\'' +
+                '}';
     }
 }
 

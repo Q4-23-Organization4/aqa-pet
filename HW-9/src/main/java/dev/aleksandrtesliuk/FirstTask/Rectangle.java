@@ -1,41 +1,52 @@
 package dev.aleksandrtesliuk.FirstTask;
 
-public class Rectangle extends Shape {
-    private final double width;
-    private final double height;
+import java.util.Objects;
 
-    public Rectangle(String color, double width, double height) {
+public class Rectangle extends Shape {
+    private final double length;
+    private final double width;
+
+    public Rectangle(String color, double length, double width) {
         super(color);
+        this.length = length;
         this.width = width;
-        this.height = height;
     }
 
     @Override
     public double calculateArea() {
-        return width * height;
+        return length * width;
     }
 
     @Override
     public double calculatePerimeter() {
-        return 2 * (width + height);
+        return 2 * (length + width);
+    }
+
+    public void paint() {
+        System.out.println("Painting Rectangle with color " + color);
     }
 
     @Override
-    public boolean equals(Object obj) {
-        if (!super.equals(obj)) return false;
-        Rectangle rectangle = (Rectangle) obj;
-        return Double.compare(rectangle.width, width) == 0 &&
-                Double.compare(rectangle.height, height) == 0;
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof Rectangle rectangle)) return false;
+        if (!super.equals(o)) return false;
+        return Double.compare(rectangle.length, length) == 0 &&
+                Double.compare(rectangle.width, width) == 0;
     }
 
     @Override
     public int hashCode() {
-        return 31 * super.hashCode() + Double.hashCode(width) + Double.hashCode(height);
+        return Objects.hash(super.hashCode(), length, width);
     }
 
     @Override
     public String toString() {
-        return "Rectangle with width: " + width + ", height: " + height + ", color: " + color;
+        return "Rectangle{" +
+                "length=" + length +
+                ", width=" + width +
+                ", color='" + color + '\'' +
+                '}';
     }
 }
 
