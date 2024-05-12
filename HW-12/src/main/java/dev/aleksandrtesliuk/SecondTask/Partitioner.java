@@ -3,7 +3,7 @@ package dev.aleksandrtesliuk.SecondTask;
 import java.util.*;
 
 class Partitioner {
-    private List<Integer> numbers;
+    private final List<Integer> numbers;
     private final int X;
 
     public Partitioner(int X) {
