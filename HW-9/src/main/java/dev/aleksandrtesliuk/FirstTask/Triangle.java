@@ -1,4 +1,4 @@
-package FirstTask;
+package dev.aleksandrtesliuk.FirstTask;
 
 public class Triangle extends Shape {
     private final double side1;

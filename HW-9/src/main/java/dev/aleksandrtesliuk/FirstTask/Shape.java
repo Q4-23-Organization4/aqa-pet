@@ -1,4 +1,4 @@
-package FirstTask;
+package dev.aleksandrtesliuk.FirstTask;
 
 public abstract class Shape {
     protected String color;

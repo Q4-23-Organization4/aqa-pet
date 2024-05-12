@@ -1,4 +1,4 @@
-package FirstTask;
+package dev.aleksandrtesliuk.FirstTask;
 
 public class Circle extends Shape {
     private final double radius;

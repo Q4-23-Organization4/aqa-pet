@@ -1,4 +1,4 @@
-package FirstTask;
+package dev.aleksandrtesliuk.FirstTask;
 
 public class Main {
     public static void main(String[] args) {
