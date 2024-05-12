@@ -30,6 +30,9 @@ public class UserMethods {
 
     // Method for checking last names starting with "S" or "A"
     public static boolean checkUsersWithSpecificLastNames(List<User> users) {
+        if (users == null) {
+            throw new IllegalArgumentException("User list cannot be null");
+        }
         return users.stream()
                 .anyMatch(user -> user.getSecondName().startsWith("S") || user.getSecondName().startsWith("A"));
     }
