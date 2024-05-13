@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Configuration status="WARN">
+    <Appenders>
+        <RollingFile name="InfoRollingFile" fileName="${sys:user.dir}/logs/app-info.log"
+                     filePattern="${sys:user.dir}/logs/app-info-%d{yyyy-MM-dd}-%i.log.gz">
+            <PatternLayout pattern="%d{yyyy-MM-dd HH:mm:ss} %-5level %logger{36} - %msg%n"/>
+            <Filters>
+                <ThresholdFilter level="ERROR" onMatch="DENY" onMismatch="NEUTRAL"/>
+            </Filters>
+            <Policies>
+                <SizeBasedTriggeringPolicy size="500KB"/>
+            </Policies>
+            <DefaultRolloverStrategy max="10"/>
+        </RollingFile>
+
+        <RollingFile name="ErrorRollingFile" fileName="${sys:user.dir}/logs/app-error.log"
+                     filePattern="${sys:user.dir}/logs/app-error-%d{yyyy-MM-dd}-%i.log.gz">
+            <PatternLayout pattern="%d{yyyy-MM-dd HH:mm:ss} %-5level %logger{36} - %msg%n"/>
+            <Filters>
+                <ThresholdFilter level="ERROR" onMatch="ACCEPT" onMismatch="DENY"/>
+            </Filters>
+            <Policies>
+                <SizeBasedTriggeringPolicy size="10MB"/>
+            </Policies>
+            <DefaultRolloverStrategy max="10"/>
+        </RollingFile>
+    </Appenders>
+    <Loggers>
+        <Root level="trace">
+            <AppenderRef ref="InfoRollingFile"/>
+            <AppenderRef ref="ErrorRollingFile"/>
+        </Root>
+    </Loggers>
+</Configuration>
