@@ -1,0 +1,54 @@
+# Ignoring build output directories
+/target/
+/out/
+
+# Exceptions for Maven wrapper and specific targets
+!.mvn/wrapper/maven-wrapper.jar
+!**/src/main/**/target/
+!**/src/test/**/target/
+
+# Ignoring configuration files with sensitive data
+/src/main/resources/*.properties
+
+# Ignoring temporary files
+*.tmp
+
+# Ignoring log files
+*.log
+
+# Ignoring compiled Java files
+*.class
+
+# IntelliJ IDEA specific files
+.idea/modules.xml
+.idea/jarRepositories.xml
+.idea/compiler.xml
+.idea/libraries/
+*.iws
+*.iml
+*.ipr
+
+# Eclipse specific files
+.apt_generated
+.classpath
+.factorypath
+.project
+.settings
+.springBeans
+.sts4-cache
+
+# NetBeans specific files
+/nbproject/private/
+/nbbuild/
+/dist/
+/nbdist/
+/.nb-gradle/
+build/
+!**/src/main/**/build/
+!**/src/test/**/build/
+
+# VS Code specific files
+.vscode/
+
+# Mac OS specific files
+.DS_Store
